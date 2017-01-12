@@ -1,0 +1,6 @@
+<div>
+  <h3> Favorites</h3>
+  <a *ngFor="let favorite of favorites" class='btn btn-default' [routerLink]="['/details', favorite.symbol]">
+      <h4>{{favorite.name}}</h4>
+  </a>
+</div>

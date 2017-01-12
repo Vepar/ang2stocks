@@ -1,0 +1,68 @@
+<div *ngIf='stock' class='container'>
+  <back-button></back-button>
+  <h3>{{stock.name}}</h3>
+  <div class='row '>
+    <div class='col-md-4 col-xs-12'>
+      <label>Symbol:</label>
+      {{stock.symbol}}
+    </div>
+    <div class='col-md-4 col-xs-12'>
+      <label>Earning Per Share:</label>
+      {{stock.earningsPerShare}}
+    </div>
+    <div class='col-md-4 col-xs-12'>
+      <label>Market Cap:</label>
+      {{stock.marketCapitalization}}
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-md-4 col-xs-12'>
+      <label>Ask:</label>
+      {{stock.ask}}
+    </div>
+    <div class='col-md-4 col-xs-12'>
+      <label>52 Week Low:</label>
+      {{stock['52WeekLow']}}
+    </div>
+    <div class='col-md-4 col-xs-12'>
+      <label>Volume:</label>
+      {{stock.volume}}
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-md-4 col-xs-12'>
+      <label>Bid:</label>
+      {{stock.bid}}
+    </div>
+    <div class='col-md-4 col-xs-12'>
+      <label>52 Week High:</label>
+      {{stock['52WeekHigh']}}
+    </div>
+    <div class='col-md-4 col-xs-12'>
+      <label>Stock Exchange:</label>
+      {{stock.stockExchange}}
+    </div>
+  </div>
+</div>
+<div *ngIf='historyChartData' class='container chart-container'>
+  <div class='btn-group' dropdown>
+    <button class='btn btn decondary dropdown-toggle' type='button' dropdownToggle>
+      {{selectedDuration.value}}<span class='caret'></span>
+    </button>
+    <ul class='dropdown-menu'>
+      <li *ngFor='let option of durationSelections' role='menuitem'>
+        <a class='dropdown-item' (click)="updateSelectedDuration(option.id)">{{option.value}}</a>
+      </li>
+    </ul>
+  </div>
+  <div class='container'>
+    <canvas baseChart
+                [datasets]="historyChartData.chartData"
+                [labels]="historyChartData.chartLabels"
+                [options]="historyChartData.lineChartOptions"
+                [colors]="historyChartData.lineChartColors"
+                [legend]="historyChartData.lineChartLegend"
+                [chartType]="historyChartData.lineChartType">
+    </canvas>
+  </div>
+</div>
