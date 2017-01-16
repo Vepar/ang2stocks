@@ -23,7 +23,7 @@ export class StockService{
 
     getStockHistory(historyRequest: HistoricalDataRequest): Promise<any>{
       return this.http.get(`${this.serviceUrl}stocks/historical?ticker=${historyRequest.stockSymbol}
-          &durationFrom=${historyRequest.durationFrom}&durationTo=${historyRequest.durationTo}`).toPromise()
+          &durationFrom=${historyRequest.getDurationFrom()}&durationTo=${historyRequest.getDurationTo()}`).toPromise()
         .then(response => response.json())
         .catch(this.handleError);
     }

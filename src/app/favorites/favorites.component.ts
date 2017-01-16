@@ -12,11 +12,20 @@ import { FavoritesService } from './favorites.service';
 
 export class FavoritesComponent implements OnInit{
   private favorites: Favorite[];
+  newSymbol: string;
 
   constructor(private favoritesService: FavoritesService){ }
 
   ngOnInit(): void {
     //TODO: make this a promise eventually
       this.favorites = this.favoritesService.getFavorites();
+  }
+
+  saveFavorite(): void{
+    if(this.newSymbol != undefined){
+      let newFavorite = this.favoritesService.saveFavorite(this.newSymbol);
+      this.newSymbol = '';
+      // this.favorites .push(newFavorite);
+    }
   }
 }

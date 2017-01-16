@@ -1,6 +1,11 @@
-<div>
+<div class='favorite-container'>
   <h3> Favorites</h3>
   <a *ngFor="let favorite of favorites" class='btn btn-default' [routerLink]="['/details', favorite.symbol]">
-      <h4>{{favorite.name}}</h4>
+      <h4>{{favorite.symbol | uppercase}}</h4>
   </a>
+  <div class='form-group'>
+    <label>Add Favorite:</label>
+    <input type='text' class='form-control' placeholder="symbol" [(ngModel)]='newSymbol' [maxlength]='8'>
+    <button class='btn btn-primary' (click)='saveFavorite()'>Add Favorite</button>
+  </div>
 </div>

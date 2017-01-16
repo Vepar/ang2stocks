@@ -1,3 +1,13 @@
 .chart-container{
   margin-top: 25px;
 }
+
+
+div.dropdown button{
+  min-width: 120px;
+  min-height: 40px;
+}
+
+div.dropdown li{
+  cursor: pointer;
+}

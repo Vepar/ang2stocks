@@ -6,4 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['app/dashboard/dashboard.component.css']
 })
 
-export class DashboardComponent  { name = 'Angular'; }
+export class DashboardComponent  {
+  name = 'something else';
+}
